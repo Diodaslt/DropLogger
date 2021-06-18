@@ -23,6 +23,7 @@ namespace DropLogger
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new WindowViewModel(this);
         }
     }
 }

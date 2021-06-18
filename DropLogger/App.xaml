@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:DropLogger"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Design/Styles/Buttons.xaml"/>
+                <ResourceDictionary Source="Design/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="Design/Styles/ListBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

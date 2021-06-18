@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Paul\Documents\GitHub\DropLogger\DropLogger\App.xaml
-11151548125
+1274670012
 
-61434861427
-13-1505183044
-MainWindow.xaml;
+221914050245
+15-1722338012
+Controls\DropLogControl\DropLogItemControl.xaml;Controls\DropLogControl\DropLogItemListControl.xaml;Controls\PageControls\ExtraControl.xaml;Controls\PageControls\LogControl.xaml;Controls\PageControls\ProfileControl.xaml;Controls\ProfileListControl\ProfileItemControl.xaml;Controls\ProfileListControl\ProfiletemListControl.xaml;Controls\WindowChromeControl.xaml;Design\Styles\Buttons.xaml;Design\Styles\Colors.xaml;Design\Styles\ListBox.xaml;MainWindow.xaml;
 
 True
 

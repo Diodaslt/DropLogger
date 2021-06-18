@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="ColumbiaBlueColor">#B7E2F6</Color>
+    <SolidColorBrush x:Key="ColumbiaBlueColorBrush" Color="{StaticResource ColumbiaBlueColor}"/>
+    
+    <Color x:Key="PrussianBlueColor">#0B3954</Color>
+    <SolidColorBrush x:Key="PrussianBlueColorBrush" Color="{StaticResource PrussianBlueColor}" />
+
+    <Color x:Key="GunMetalColor">#072736</Color>
+    <SolidColorBrush x:Key="GunMetalColorBrush" Color="{StaticResource GunMetalColor}"/>
+    
+    <Color x:Key="RichBlackFOGRAColor">#051924</Color>
+    <SolidColorBrush x:Key="RichBlackFOGRAColorBrush" Color="{StaticResource RichBlackFOGRAColor}" />
+</ResourceDictionary>

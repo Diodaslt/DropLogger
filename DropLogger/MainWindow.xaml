@@ -3,10 +3,87 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DropLogger"
+        xmlns:core="clr-namespace:DropLogger"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource PrussianBlueColorBrush}"
+        >
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="25"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type core:LogViewModel}">
+            <core:LogControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type core:ProfileViewModel}">
+            <core:ProfileControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type core:ExtraViewModel}">
+            <core:ExtraControl/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
+        <!-- Chrome bar -->
+        <!-- Empty text block -->
+        <TextBlock VerticalAlignment="Top"
+                   Height="25" x:Name="titlebar"
+                   Background="{StaticResource RichBlackFOGRAColorBrush}"
+                   Grid.ColumnSpan="3"
+                   >
+        </TextBlock>
+        
+        <!-- Minimize, exit window buttons -->
+        <core:WindowChromeControl Grid.Column="2"/>
+
+        <!-- Log, Setup, Extra buttons-->
+        <ListBox x:Name="ListBoxMenu"                    
+                 Grid.Column="0"
+                 ItemsSource="{Binding MenuItems}"
+                 SelectedIndex="0"
+                 Grid.Row="1"
+                 Grid.RowSpan="3"
+                 VerticalAlignment="Center"
+                 Background="{StaticResource PrussianBlueColorBrush}"
+                 Margin="-1"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name}"
+                               Padding="15"
+                               FontSize="20"
+                               >
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Displayed pages -->
+        <Border Grid.Column="1" Grid.Row="1" 
+                Grid.RowSpan="4" 
+                >
+            
+            <ContentControl Content="{Binding ElementName=ListBoxMenu, Path=SelectedItem}"
+                            />
+        </Border>
     </Grid>
 </Window>
+    
+    
