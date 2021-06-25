@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DropLogger
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// The event that is fired when any child property changes its value

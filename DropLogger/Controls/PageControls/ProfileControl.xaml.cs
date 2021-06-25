@@ -23,6 +23,7 @@ namespace DropLogger
         public ProfileControl()
         {
             InitializeComponent();
+            this.DataContext = new ProfileViewModel();
         }
     }
 }

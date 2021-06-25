@@ -82,10 +82,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\DropLogControl\DropLogItemControl.xaml.cs">
+    <Compile Include="Base\AttachedProperties\ScrollbarAttachedProperty.cs" />
+    <Compile Include="Base\WriteLineDebug.cs" />
+    <Compile Include="Classes\ListProperties.cs" />
+    <Compile Include="Controls\DropControls\DropItemControl.xaml.cs">
+      <DependentUpon>DropItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropControls\ItemDisplayControl.xaml.cs">
+      <DependentUpon>ItemDisplayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropControls\DropLogListControl\DropLogItemControl.xaml.cs">
       <DependentUpon>DropLogItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\DropLogControl\DropLogItemListControl.xaml.cs">
+    <Compile Include="Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml.cs">
       <DependentUpon>DropLogItemListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PageControls\ExtraControl.xaml.cs">
@@ -97,26 +106,41 @@
     <Compile Include="Controls\PageControls\ProfileControl.xaml.cs">
       <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProfileListControl\ProfileItemControl.xaml.cs">
+    <Compile Include="Controls\PageControls\AddProfileControl.xaml.cs">
+      <DependentUpon>AddProfileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProfileControls\ProfileListControl\ProfileItemControl.xaml.cs">
       <DependentUpon>ProfileItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProfileListControl\ProfiletemListControl.xaml.cs">
+    <Compile Include="Controls\ProfileControls\ProfileListControl\ProfiletemListControl.xaml.cs">
       <DependentUpon>ProfiletemListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\WindowChromeControl.xaml.cs">
       <DependentUpon>WindowChromeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\Menu\MenuItemDetails.cs" />
+    <Compile Include="Converters\BaseValueConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="DataModels\Log\ItemModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModels\AddProfileViewModel.cs" />
+    <Compile Include="DataModels\Profile\ProfileModel.cs" />
     <Compile Include="DataModels\WindowModel.cs" />
     <Compile Include="ViewModels\ExtraViewModels\ExtraViewModel.cs" />
     <Compile Include="ViewModels\LogViewModels\LogViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
-    <Page Include="Controls\DropLogControl\DropLogItemControl.xaml">
+    <Page Include="Controls\DropControls\DropItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\DropLogControl\DropLogItemListControl.xaml">
+    <Page Include="Controls\DropControls\ItemDisplayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DropControls\DropLogListControl\DropLogItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,11 +156,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProfileListControl\ProfileItemControl.xaml">
+    <Page Include="Controls\PageControls\AddProfileControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProfileListControl\ProfiletemListControl.xaml">
+    <Page Include="Controls\ProfileControls\ProfileListControl\ProfileItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProfileControls\ProfileListControl\ProfiletemListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,7 +180,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Design\Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Design\Styles\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Styles\ScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Styles\TextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,7 +238,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Design\Images\Grimy_lantadyme_detail.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -213,6 +255,37 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Papirus-Team-Papirus-Apps-Runescape.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Design\Images\100px-Battlestaff_detail.png" />
+    <Resource Include="Design\Images\100px-Coins_detail.png" />
+    <Resource Include="Design\Images\100px-Uncut_onyx_detail.png" />
+    <Resource Include="Design\Images\120px-Necrite_stone_spirit_detail.png" />
+    <Resource Include="Design\Images\800px-Dwarf_weed_seed_detail.png" />
+    <Resource Include="Design\Images\800px-Huge_plated_rune_salvage_detail.png" />
+    <Resource Include="Design\Images\800px-Magic_logs_detail.png" />
+    <Resource Include="Design\Images\800px-Magic_seed_detail.png" />
+    <Resource Include="Design\Images\800px-Sirenic_scale_detail.png" />
+    <Resource Include="Design\Images\800px-Yew_logs_detail.png" />
+    <Resource Include="Design\Images\Banite_stone_spirit_detail.png" />
+    <Resource Include="Design\Images\Black_dragonhide_detail.png" />
+    <Resource Include="Design\Images\Grimy_avantoe_detail.png" />
+    <Resource Include="Design\Images\Grimy_dwarf_weed_detail.png" />
+    <Resource Include="Design\Images\Hydrix_bolt_tips_detail.png" />
+    <Resource Include="Design\Images\Onyx_bolts_%28e%29_detail.png" />
+    <Resource Include="Design\Images\Phasmatite_stone_spirit_detail.png" />
+    <Resource Include="Design\Images\Water_talisman_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Design\Images\100px-Araxxi%27s_eye_detail.png" />
+    <Resource Include="Design\Images\100px-Araxyte_egg_detail.png" />
+    <Resource Include="Design\Images\120px-Spider_leg_middle_detail.png" />
+    <Resource Include="Design\Images\800px-Spider_leg_top_detail.png" />
+    <Resource Include="Design\Images\85px-Araxxi%27s_fang_detail.png" />
+    <Resource Include="Design\Images\Araxxi%27s_web_detail.png" />
+    <Resource Include="Design\Images\Araxyte_spider_egg_%28unchecked%29_detail.png" />
+    <Resource Include="Design\Images\Dave_chathead.png" />
+    <Resource Include="Design\Images\Spider_leg_bottom_detail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

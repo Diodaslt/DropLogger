@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="ColumbiaBlueColor">#B7E2F6</Color>
-    <SolidColorBrush x:Key="ColumbiaBlueColorBrush" Color="{StaticResource ColumbiaBlueColor}"/>
+    <Color x:Key="LightGrayColor">#C3C3C3</Color>
+    <SolidColorBrush x:Key="ColumbiaBlueColorBrush" Color="{StaticResource LightGrayColor}"/>
     
     <Color x:Key="PrussianBlueColor">#0B3954</Color>
     <SolidColorBrush x:Key="PrussianBlueColorBrush" Color="{StaticResource PrussianBlueColor}" />

@@ -7,18 +7,21 @@ namespace DropLogger
     {
         public ICommand CloseWindowCommand { get; set; }
         public ICommand MinimizeWindowCommand { get; set; }
-        public ICommand MenuCommand { get; set; }
-        public ICommand OpenLogCommand { get; set; }
-        public ICommand OpenExtraCommand { get; set; }
-        private ContentControl _SelectedViewModel;
-        public ContentControl SelectedViewModel 
+        public ICommand LogViewCommand { get; set; }
+        public ICommand ProfileViewCommand { get; set; }
+        public ICommand ExtraViewCommand { get; set; }
+        /// <summary>
+        /// Variable that will have view assigned to it
+        /// </summary>
+        private object _CurrentView;
+        public object CurrentView
         {
-            get { return _SelectedViewModel; }
+            get { return _CurrentView; }
             set
             {
-                _SelectedViewModel = value;
-                OnPropertyChanged("SelectedViewModel");
-            } 
+                _CurrentView = value;
+                OnPropertyChanged("CurrentView");
+            }
         }
     }
 }

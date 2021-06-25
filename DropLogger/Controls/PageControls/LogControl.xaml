@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="{StaticResource ColumbiaBlueColorBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -22,7 +22,23 @@
                    FontWeight="Bold" Margin="5"
                    />
 
+        <!-- Item display -->
+        <core:ItemDisplayControl Grid.Row="1" Grid.Column="0"/>
+
         <!-- Logged Item list -->
         <core:DropLogItemListControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+        
+        <!-- List is empty message -->
+        <TextBlock Text="List is empty"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource RichBlackFOGRAColorBrush}"
+                   Visibility="{Binding Source={x:Static core:ListProperties.Instance}, Path=isDropLogEmpty, Converter={core:BoolToVisibilityConverter}}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="10"
+                   />
     </Grid>
 </UserControl>

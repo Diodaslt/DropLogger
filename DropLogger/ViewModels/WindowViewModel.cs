@@ -13,23 +13,41 @@ namespace DropLogger
 {
     public class WindowViewModel : WindowModel
     {
-        public ObservableCollection<MenuItemDetails> MenuItems { get; set; }
         public WindowViewModel(Window window)
         {
-            MenuItems = new ObservableCollection<MenuItemDetails>();
+            //Default view
+            CurrentView = new LogViewModel();
 
-            //Create menu items
-            MenuItems.Add(new LogViewModel());
-            MenuItems.Add(new ProfileViewModel());
-            MenuItems.Add(new ExtraViewModel());
+            LogViewCommand = new RelayCommand(() => ChangeView());
+            ProfileViewCommand = new RelayCommand(() => ProfileView());
+            ExtraViewCommand = new RelayCommand(() => ExtraView());
 
             CloseWindowCommand = new RelayCommand(() => window.Close());
             MinimizeWindowCommand = new RelayCommand(() => window.WindowState = WindowState.Minimized);
-            OpenLogCommand = new RelayCommand(() => OpenLog());
-        }
-        private void OpenLog()
-        {
 
+            //Check if the drop log is empty
+            ListProperties.Instance.CheckDropList();
+        }
+
+        private void ExtraView()
+        {
+            CurrentView = new ExtraViewModel();
+        }
+
+        private void ProfileView()
+        {
+            CurrentView = new ProfileViewModel();
+        }
+
+        private void ChangeView()
+        {
+            //Disable the system message which says that the profile is empty
+            ListProperties.Instance.isProfileListEmpty = false;
+
+            //Check if the drop log is empty
+            ListProperties.Instance.CheckDropList();
+
+            CurrentView = new LogViewModel();
         }
     }
 }

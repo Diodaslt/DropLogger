@@ -54,34 +54,41 @@
         <core:WindowChromeControl Grid.Column="2"/>
 
         <!-- Log, Setup, Extra buttons-->
-        <ListBox x:Name="ListBoxMenu"                    
-                 Grid.Column="0"
-                 ItemsSource="{Binding MenuItems}"
-                 SelectedIndex="0"
-                 Grid.Row="1"
-                 Grid.RowSpan="3"
-                 VerticalAlignment="Center"
-                 Background="{StaticResource PrussianBlueColorBrush}"
-                 Margin="-1"
-                 >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding name}"
-                               Padding="15"
-                               FontSize="20"
-                               >
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Button Grid.Row="1"
+                Content="LOG"
+                Command="{Binding LogViewCommand}"
+                Style="{StaticResource MenuItemButton}"
+                />
+        <Button Grid.Row="2"
+                Content="PROFILE"
+                Command="{Binding ProfileViewCommand}"
+                Style="{StaticResource MenuItemButton}"
+                />
+        <Button Grid.Row="3"
+                Content="EXTRA"
+                Command="{Binding ExtraViewCommand}"
+                Style="{StaticResource MenuItemButton}" 
+                />
+        
+        <!-- System messages -->
+        <!-- System messages -->
+        <TextBlock Text="Create a profile first"
+               Grid.Row="4"
+               FontSize="30"
+               Foreground="Red"
+               FontWeight="Bold"
+               TextWrapping="Wrap"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Visibility="{Binding Source={x:Static core:ListProperties.Instance}, Path=isProfileListEmpty, Converter={core:BoolToVisibilityConverter}}"
+               />
 
         <!-- Displayed pages -->
         <Border Grid.Column="1" Grid.Row="1" 
                 Grid.RowSpan="4" 
                 >
             
-            <ContentControl Content="{Binding ElementName=ListBoxMenu, Path=SelectedItem}"
-                            />
+            <ContentControl Content="{Binding CurrentView}"/>
         </Border>
     </Grid>
 </Window>

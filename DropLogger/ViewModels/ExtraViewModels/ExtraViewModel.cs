@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace DropLogger
 {
-    public class ExtraViewModel : MenuItemDetails
+    public class ExtraViewModel
     {
-        public ExtraViewModel()
-        {
-            this.name = "EXTRA";
-        }
+
     }
 }
