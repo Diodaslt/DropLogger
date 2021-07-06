@@ -31,7 +31,7 @@ namespace DropLogger
             //Read data from the save file
             JSONDriver.ReadJson();
 
-            ProfileView();
+            LogView();
             //Write data to json when closing the window
             //This should prompt once the app is started 
             //and before it's closed
