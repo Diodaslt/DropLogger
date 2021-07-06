@@ -1,4 +1,4 @@
 # DropLogger
-<b>droplogger</b>
+<i>droplogger</i>
 
 
