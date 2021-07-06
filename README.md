@@ -1,5 +1,5 @@
 # DropLogger
-Application designed to log drops received on Runescape fighting Araxii.
+Application written in C#/Xaml in WPF framework designed to log drops received on Runescape fighting Araxii.
 
 <H2>Features</H2>
 <H3>Ability to create, delete profiles and swap between them</H3>
