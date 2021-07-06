@@ -1,4 +1,4 @@
 # DropLogger
-<i>droplogger</i>
+Application designed to log drops received on Runescape fighting Araxii.
 
 
