@@ -13,7 +13,7 @@
         </DataTemplate>
     </UserControl.Resources>
     
-    <Grid Background="{StaticResource ColumbiaBlueColorBrush}">
+    <Grid Background="{StaticResource LightGrayColorBrush}">
         <Grid.RowDefinitions>
             <!-- Page name -->
             <RowDefinition Height="50"/>
@@ -45,7 +45,19 @@
                 Command="{Binding AddProfileCommand}"
                 Tag="AddProfileControl"
                 />
+    
+        
+        <!-- Selected profile -->
+        <TextBlock Text="{Binding Source={x:Static core:ProfileViewModel.Profile}, Path=selectedprofilename, FallbackValue=Fallback}"
+                   Grid.Column="2"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   Margin="10"
+                   Foreground="{StaticResource GunMetalColorBrush}"
+                   />
 
+        <!-- Table start -->
         <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid DataContext="{Binding Source={x:Static core:ProfileViewModel.ProfileList}}">
+    <Grid>
         <ScrollViewer core:ScrollBarAttachedProperty.AutoScroll="{Binding Source={x:Static core:ProfileViewModel.Profile}, Path=ScrollBarAdjustment}"
                       VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding DropList}">

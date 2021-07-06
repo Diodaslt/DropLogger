@@ -6,7 +6,7 @@
              xmlns:core="clr-namespace:DropLogger"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="{StaticResource ColumbiaBlueColorBrush}">
+    <Grid Background="{StaticResource LightGrayColorBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="*"/>
@@ -16,11 +16,6 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <TextBlock Text="LOG" FontSize="30" Foreground="{StaticResource PrussianBlueColorBrush}" 
-                   VerticalAlignment="Top" HorizontalAlignment="Left"
-                   FontWeight="Bold" Margin="5"
-                   />
 
         <!-- Item display -->
         <core:ItemDisplayControl Grid.Row="1" Grid.Column="0"/>
@@ -40,5 +35,49 @@
                    VerticalAlignment="Top"
                    Margin="10"
                    />
+
+        <!-- Profile list state message -->
+        <TextBlock Text="Create a profile first"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="30"
+                   Foreground="{StaticResource RichBlackFOGRAColorBrush}"
+                   FontWeight="Bold"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Visibility="{Binding Source={x:Static core:ListProperties.Instance}, Path=isProfileListEmpty, Converter={core:BoolToVisibilityConverter}}"
+                   Margin="10"
+                   />
+        
+        <!-- Total kills, wealth values -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Log text -->
+            <TextBlock Text="LOG" FontSize="30" Foreground="{StaticResource PrussianBlueColorBrush}" 
+                   VerticalAlignment="Top" HorizontalAlignment="Left"
+                   FontWeight="Bold" Margin="5"
+                   />
+            
+            <!-- Kill count -->
+            <TextBlock Text="{Binding DropList.Count}"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource RichBlackFOGRAColorBrush}"
+                       />
+            
+            <!-- Complete value -->
+            <core:TotalValueControl Grid.Column="2" Grid.ColumnSpan="2"/>
+        </Grid>
     </Grid>
 </UserControl>

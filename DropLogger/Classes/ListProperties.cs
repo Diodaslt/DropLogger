@@ -36,9 +36,15 @@ namespace DropLogger
         public void CheckDropList()
         {
             if (ProfileViewModel.ProfileList.Count == 0)
-                return;
+            {
+                isProfileListEmpty = true;
 
-            if (ProfileViewModel.ProfileList[ProfileViewModel.CurrentlySelectedProfile].DropList.Count == 0)
+                //Disabling this so that only one message would be displayed
+                isDropLogEmpty = false;
+                return;
+            }
+
+            if (LogViewModel.DropList.Count == 0)
                 isDropLogEmpty = true;
             else
                 isDropLogEmpty = false;

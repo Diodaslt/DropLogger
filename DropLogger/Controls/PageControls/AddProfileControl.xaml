@@ -13,7 +13,7 @@
         </DataTemplate>
     </UserControl.Resources>
     
-    <Grid Background="{StaticResource ColumbiaBlueColorBrush}">
+    <Grid Background="{StaticResource LightGrayColorBrush}">
         <Grid.RowDefinitions>
             <!-- Page name -->
             <RowDefinition Height="50"/>

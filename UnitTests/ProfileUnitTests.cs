@@ -74,7 +74,7 @@ namespace DropLogger
             ProfileTestList[0].DropList.RemoveAt(1);
 
             //Restructure the list
-            pviewm.RestructInnerList(1, ProfileTestList);
+            pviewm.RestructInnerList(1, ProfileTestList[0].DropList);
 
             Assert.AreEqual(1, ProfileTestList[0].DropList.Count);
             Assert.AreEqual(0, ProfileTestList[0].DropList[0].id);

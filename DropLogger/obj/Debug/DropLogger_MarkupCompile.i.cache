@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Paul\Documents\GitHub\DropLogger\DropLogger\App.xaml
-18-869170768
+191971620563
 
-32-772162630
+3562856934
 15-1722338012
-Controls\DropControls\DropItemControl.xaml;Controls\DropControls\ItemDisplayControl.xaml;Controls\DropControls\DropLogListControl\DropLogItemControl.xaml;Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml;Controls\PageControls\ExtraControl.xaml;Controls\PageControls\LogControl.xaml;Controls\PageControls\ProfileControl.xaml;Controls\PageControls\AddProfileControl.xaml;Controls\ProfileControls\ProfileListControl\ProfileItemControl.xaml;Controls\ProfileControls\ProfileListControl\ProfiletemListControl.xaml;Controls\WindowChromeControl.xaml;Design\Styles\Buttons.xaml;Design\Styles\Colors.xaml;Design\Styles\ComboBox.xaml;Design\Styles\ListBox.xaml;Design\Styles\ScrollBar.xaml;Design\Styles\TextBox.xaml;MainWindow.xaml;
+Controls\DropControls\DropItemControl.xaml;Controls\DropControls\ItemDisplayControl.xaml;Controls\DropControls\DropLogListControl\DropLogItemControl.xaml;Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml;Controls\DropControls\TotalValueControl.xaml;Controls\PageControls\ExtraControl.xaml;Controls\PageControls\LogControl.xaml;Controls\PageControls\ProfileControl.xaml;Controls\PageControls\AddProfileControl.xaml;Controls\ProfileControls\ProfileListControl\ProfileItemControl.xaml;Controls\ProfileControls\ProfileListControl\ProfiletemListControl.xaml;Controls\WindowChromeControl.xaml;Design\Styles\Buttons.xaml;Design\Styles\Colors.xaml;Design\Styles\ComboBox.xaml;Design\Styles\ListBox.xaml;Design\Styles\ScrollBar.xaml;Design\Styles\TextBox.xaml;MainWindow.xaml;
 
 True
 

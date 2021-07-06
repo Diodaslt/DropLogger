@@ -10,206 +10,252 @@ namespace DropLogger
 {
     public class LogViewModel : ItemModel
     {
+        public static LogViewModel Instance = new LogViewModel();
         public static ObservableCollection<ItemModel> ItemDisplayList { get; set; }
+        public static ObservableCollection<ItemModel> DropList { get; set; }
+        public ICommand AddItemCommand { get; set; }
         public LogViewModel()
         {
             //Skip if list is not null
-            if (ItemList == null)
-                ItemList = new ObservableCollection<ItemModel>();
+            if (DropList == null)
+                DropList = new ObservableCollection<ItemModel>();
 
             if (ItemDisplayList == null)
                 ItemDisplayList = new ObservableCollection<ItemModel>();
 
-            ItemDisplayList = new ObservableCollection<ItemModel>
+            //Need this flag no to reset the list after everytime this model is selecetd
+            //The display is supposed to be empty if the profile is empty as well
+            //If the profile is not empty, then a new display should be initialized
+            if (ItemDisplayList.Count == 0 && ProfileViewModel.ProfileList.Count != 0)
+                ItemDisplayList = new ObservableCollection<ItemModel>
             {
                new ItemModel
                {
                    id = 0,
                    itemName = "Grimy lantadyme",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Grimy_lantadyme_detail.png"
+                   imgSrc = "/Design/Images/Grimy_lantadyme_detail.png",
+                   minItemQuantity = 40,
+                   maxItemQuantity = 55,
+                   itemQuantity = 40,
+                   itemValue = 7500,
                },
                new ItemModel
                {
                    id = 1,
                    itemName = "Grimy dwarf weed",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Grimy_lantadyme_detail.png"
+                   imgSrc = "/Design/Images/Grimy_lantadyme_detail.png",
+                   itemQuantity = 45,
+                   itemValue = 8400
                },
                new ItemModel
                {
                    id = 2,
                    itemName = "Grimy avantoe",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Grimy_avantoe_detail.png"
+                   imgSrc = "/Design/Images/Grimy_avantoe_detail.png",
+                   itemQuantity = 45,
+                   itemValue = 1000
                },
                new ItemModel
                {
                    id = 3,
                    itemName = "Black dragonhide",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Black_dragonhide_detail.png"
+                   imgSrc = "/Design/Images/Black_dragonhide_detail.png",
+                   minItemQuantity = 70,
+                   maxItemQuantity = 90,
+                   itemQuantity = 70,
+                   itemValue = 3400
                },
                new ItemModel
                {
                    id = 4,
                    itemName = "Magic logs",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Magic_logs_detail.png"
+                   imgSrc = "/Design/Images/800px-Magic_logs_detail.png",
+                   minItemQuantity = 5,
+                   maxItemQuantity = 8,
+                   itemQuantity = 5,
+                   itemValue = 52000
                },
                new ItemModel
                {
                    id = 5,
                    itemName = "Yew logs",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Yew_logs_detail.png"
+                   imgSrc = "/Design/Images/800px-Yew_logs_detail.png",
+                   itemQuantity = 600,
+                   itemValue = 167
                },
                new ItemModel
                {
                    id = 6,
                    itemName = "Huge plated rune salvage",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Huge_plated_rune_salvage_detail.png"
+                   imgSrc = "/Design/Images/800px-Huge_plated_rune_salvage_detail.png",
+                   itemQuantity = 10,
+                   itemValue = 66000
                },
                new ItemModel
                {
                    id = 7,
                    itemName = "Necrite stone spirit",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/120px-Necrite_stone_spirit_detail.png"
+                   imgSrc = "/Design/Images/120px-Necrite_stone_spirit_detail.png",
+                   itemQuantity = 20,
+                   itemValue = 834
                },
                new ItemModel
                {
                    id = 8,
                    itemName = "Coins",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/100px-Coins_detail.png"
+                   imgSrc = "/Design/Images/100px-Coins_detail.png",
+                   minItemQuantity = 400024,
+                   maxItemQuantity = 449225,
+                   itemQuantity = 400024, 
+                   itemValue = 1
                },
                new ItemModel
                {
                    id = 9,
                    itemName = "Water talisman",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Water_talisman_detail.png"
+                   imgSrc = "/Design/Images/Water_talisman_detail.png",
+                   minItemQuantity = 40,
+                   maxItemQuantity = 70,
+                   itemQuantity = 40,
+                   itemValue = 4650
                },
                new ItemModel
                {
                    id = 10,
                    itemName = "Banite stone spirit",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Banite_stone_spirit_detail.png"
+                   imgSrc = "/Design/Images/Banite_stone_spirit_detail.png",
+                   itemQuantity = 25,
+                   itemValue = 5000
                },
                new ItemModel
                {
                    id = 11,
                    itemName = "Dwarf weed seed",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Grimy_dwarf_weed_detail.png"
+                   imgSrc = "/Design/Images/Grimy_dwarf_weed_detail.png",
+                   itemQuantity = 10,
+                   itemValue = 8000
                },
                new ItemModel
                {
                    id = 12,
                    itemName = "Magic seed",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Magic_seed_detail.png"
+                   imgSrc = "/Design/Images/800px-Magic_seed_detail.png",
+                   minItemQuantity = 5,
+                   maxItemQuantity = 8,
+                   itemQuantity = 5,
+                   itemValue = 21000
                },
                new ItemModel
                {
                    id = 13,
                    itemName = "Battlestaff",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/100px-Battlestaff_detail.png"
+                   imgSrc = "/Design/Images/100px-Battlestaff_detail.png",
+                   minItemQuantity = 50,
+                   maxItemQuantity = 70,
+                   itemQuantity = 50,
+                   itemValue = 7000
                },
                new ItemModel
                {
                    id = 14,
                    itemName = "Onyx bolts (e)",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Onyx_bolts_(e)_detail.png"
+                   imgSrc = "/Design/Images/Onyx_bolts_(e)_detail.png",
+                   minItemQuantity = 100,
+                   maxItemQuantity = 251,
+                   itemQuantity = 100,
+                   itemValue = 8000
                },
                new ItemModel
                {
                    id = 15,
                    itemName = "Sirenic scale",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Sirenic_scale_detail.png"
+                   imgSrc = "/Design/Images/800px-Sirenic_scale_detail.png",
+                   minItemQuantity = 2,
+                   maxItemQuantity = 3,
+                   itemQuantity = 2,
+                   itemValue = 376000
                },
                new ItemModel
                {
                    id = 16,
                    itemName = "Uncut onyx",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Onyx_bolts_(e)_detail.png"
+                   imgSrc = "/Design/Images/Onyx_bolts_(e)_detail.png",
+                   itemQuantity = 2,
+                   itemValue = 3400000
                },
                new ItemModel
                {
                    id = 17,
                    itemName = "Hydrix bolt tips",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Hydrix_bolt_tips_detail.png"
+                   imgSrc = "/Design/Images/Hydrix_bolt_tips_detail.png",
+                   itemQuantity = 40,
+                   itemValue = 39600
                },
                new ItemModel
                {
                    id = 18,
                    itemName = "Spider leg top",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/800px-Spider_leg_top_detail.png"
+                   imgSrc = "/Design/Images/800px-Spider_leg_top_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 48659794
                },
                new ItemModel
                {
                    id = 19,
                    itemName = "Spider leg middle",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/120px-Spider_leg_middle_detail.png"
+                   imgSrc = "/Design/Images/120px-Spider_leg_middle_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 48659794
                },
                new ItemModel
                {
                    id = 20,
                    itemName = "Spider leg bottom",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Spider_leg_bottom_detail.png"
+                   imgSrc = "/Design/Images/Spider_leg_bottom_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 48659794
                },
                new ItemModel
                {
                    id = 21,
                    itemName = "Araxxi's fang",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/85px-Araxxi's_fang_detail.png"
+                   imgSrc = "/Design/Images/85px-Araxxi's_fang_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 221037761
                },
                new ItemModel
                {
                    id = 22,
                    itemName = "Araxxi's web",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Araxxi's_web_detail.png"
+                   imgSrc = "/Design/Images/Araxxi's_web_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 2901075
                },
                new ItemModel
                {
                    id = 23,
                    itemName = "Araxxi's eye",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/100px-Araxxi's_eye_detail.png"
+                   imgSrc = "/Design/Images/100px-Araxxi's_eye_detail.png",
+                   itemQuantity = 1,
+                   itemValue = 12228545
                },
                new ItemModel
                {
                    id = 24,
                    itemName = "Araxyte pet",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
                    imgSrc = "/Design/Images/Dave_chathead.png"
                },
                new ItemModel
                {
                    id = 25,
                    itemName = "Araxyte egg",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
                    imgSrc = "/Design/Images/100px-Araxxi's_eye_detail.png"
                },
                new ItemModel
                {
                    id = 26,
                    itemName = "Araxyte spider egg (unchecked)",
-                   AddItemCommand = new RelayCommand((par) => AddItem(par)),
-                   imgSrc = "/Design/Images/Araxyte_spider_egg_(unchecked)_detail.png"
+                   imgSrc = "/Design/Images/Araxyte_spider_egg_(unchecked)_detail.png",
                },
             };
         }
@@ -217,9 +263,11 @@ namespace DropLogger
         /// <summary>
         /// Add a new item
         /// </summary>
-        private void AddItem(object obj)
+        public void AddItem(object obj)
         {
             int index = (int)obj;
+
+            LootValue.Instance.AddValue(ItemDisplayList[index].itemQuantity, ItemDisplayList[index].itemValue);
 
             if (ProfileViewModel.ProfileList.Count == 0)
             {
@@ -228,10 +276,26 @@ namespace DropLogger
                 return;
             }
 
-            ProfileViewModel.Profile.CreateDropList(ItemDisplayList, index);
+            ItemDisplayList[index].multiId++;
+
+            DropList.Add(new ItemModel
+            {
+                id = DropList.Count,
+                itemName = ItemDisplayList[index].itemName,
+                itemValue = ItemDisplayList[index].itemValue,
+                itemQuantity = ItemDisplayList[index].itemQuantity,
+                multiId = ItemDisplayList[index].multiId,
+                uniqueId = ItemDisplayList[index].id
+            });
+
+            //Create an instance of this list in the ProfileList as a copy
+            ProfileViewModel.Profile.CreateDropList(DropList, ItemDisplayList, index);
 
             //Check if the drop log is empty
             ListProperties.Instance.CheckDropList();
+
+            //Notify the json file that changes have been made
+            JSONDriver.WriteJson(ProfileViewModel.ProfileList);
         }
     }
 }

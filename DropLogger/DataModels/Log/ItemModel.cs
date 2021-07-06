@@ -10,9 +10,7 @@ namespace DropLogger
 {
     public class ItemModel : BaseViewModel
     {
-        public static ObservableCollection<ItemModel> ItemList { get; set; }
         public static LogViewModel LogInstance { get; set; }
-        public ICommand AddItemCommand { get; set; }
         /// <summary>
         /// Item number 
         /// </summary>
@@ -76,6 +74,60 @@ namespace DropLogger
             {
                 _itemValue = value;
                 OnPropertyChanged("itemValue");
+            }
+        }
+        /// <summary>
+        /// Number of items received from the same drop
+        /// between min and max
+        /// </summary>
+        private int _itemQuantity;
+        public int itemQuantity
+        {
+            get { return _itemQuantity; }
+            set
+            {
+                _itemQuantity = value;
+                OnPropertyChanged("itemQuantity");
+            }
+        }
+        /// <summary>
+        /// Multiple quantity drop min value
+        /// </summary>
+        private int _minItemQuantity;
+        public int minItemQuantity
+        {
+            get { return _minItemQuantity; }
+            set
+            {
+                _minItemQuantity = value;
+                OnPropertyChanged("minItemQuantity");
+            }
+        }
+        /// <summary>
+        /// Multiple quantity drop max value
+        /// </summary>
+        private int _maxItemQuantity;
+        public int maxItemQuantity
+        {
+            get { return _maxItemQuantity; }
+            set
+            {
+                _maxItemQuantity = value;
+                OnPropertyChanged("maxItemQuantity");
+            }
+        }
+        /// <summary>
+        /// Total value of the drop received
+        /// Quantity * Item value
+        /// </summary>
+        private decimal _totalValue;
+        public decimal totalValue
+        {
+            get { return _totalValue; }
+            set
+            {
+                _totalValue = value;
+                OnPropertyChanged("totalValue");
             }
         }
         /// <summary>

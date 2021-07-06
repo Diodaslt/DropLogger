@@ -11,7 +11,7 @@
         <Button>
         <Button.Style>
             <Style TargetType="{x:Type Button}">
-                <Setter Property="Command" Value="{Binding AddItemCommand}"/>
+                    <Setter Property="Command" Value="{Binding Source={x:Static core:ProfileViewModel.Profile}, Path=AddItemCommand}"/>
                     <Setter Property="CommandParameter" Value="{Binding id}"/>
                     <Setter Property="Opacity" Value="0.9"/>
                     <Setter Property="Template">

@@ -10,16 +10,8 @@ namespace DropLogger
 {
     public class ProfileModel : BaseViewModel
     {
-        private ObservableCollection<ItemModel> _DropList;
-        public ObservableCollection<ItemModel> DropList
-        {
-            get { return _DropList; }
-            set
-            {
-                _DropList = value;
-                OnPropertyChanged("DropList");
-            }
-        }
+        public ObservableCollection<ItemModel> DropList { get; set; }
+        public ObservableCollection<ItemModel> ItemDisplayList { get; set; }
         /// <summary>
         /// Log id number
         /// </summary>
@@ -72,14 +64,28 @@ namespace DropLogger
         /// <summary>
         /// Total trip value
         /// </summary>
-        private decimal _tripValue;
-        public decimal tripValue
+        private string _tripValue;
+        public string tripValue
         {
             get { return _tripValue; }
             set
             {
                 _tripValue = value;
                 OnPropertyChanged("tripValue");
+            }
+        }
+        /// <summary>
+        /// Raw value of the trip value
+        /// this is before the k, m, b label is attached
+        /// </summary>
+        private decimal _rawTripValue;
+        public decimal rawTripValue
+        {
+            get { return _rawTripValue; }
+            set
+            {
+                _rawTripValue = value;
+                OnPropertyChanged("rawTripValue");
             }
         }
     }

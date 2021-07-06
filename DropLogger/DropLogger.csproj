@@ -84,7 +84,9 @@
     </ApplicationDefinition>
     <Compile Include="Base\AttachedProperties\ScrollbarAttachedProperty.cs" />
     <Compile Include="Base\WriteLineDebug.cs" />
+    <Compile Include="Classes\JSONDriver.cs" />
     <Compile Include="Classes\ListProperties.cs" />
+    <Compile Include="Classes\LootValue.cs" />
     <Compile Include="Controls\DropControls\DropItemControl.xaml.cs">
       <DependentUpon>DropItemControl.xaml</DependentUpon>
     </Compile>
@@ -96,6 +98,9 @@
     </Compile>
     <Compile Include="Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml.cs">
       <DependentUpon>DropLogItemListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropControls\TotalValueControl.xaml.cs">
+      <DependentUpon>TotalValueControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PageControls\ExtraControl.xaml.cs">
       <DependentUpon>ExtraControl.xaml</DependentUpon>
@@ -141,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DropControls\DropLogListControl\DropLogItemListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DropControls\TotalValueControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,6 +295,9 @@
     <Resource Include="Design\Images\Araxyte_spider_egg_%28unchecked%29_detail.png" />
     <Resource Include="Design\Images\Dave_chathead.png" />
     <Resource Include="Design\Images\Spider_leg_bottom_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Save\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

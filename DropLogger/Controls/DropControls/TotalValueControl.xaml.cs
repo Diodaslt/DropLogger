@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace DropLogger
 {
     /// <summary>
-    /// Interaction logic for DropLogItemListControl.xaml
+    /// Interaction logic for TotalValueControl.xaml
     /// </summary>
-    public partial class DropLogItemListControl : UserControl
+    public partial class TotalValueControl : UserControl
     {
-        public DropLogItemListControl()
+        public TotalValueControl()
         {
             InitializeComponent();
-            this.DataContext = new LogViewModel();
         }
     }
 }

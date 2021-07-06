@@ -53,15 +53,18 @@ namespace DropLogger
             WriteLineDebug.Write(logname);
             WriteLineDebug.Write(SelectedItem.type);
 
+            //Display the name of the log at the top right corner after clicking "Save"
+            ProfileViewModel.Profile.selectedprofilename = this.logname;
+
             //Add a new item to the list
             ProfileViewModel.ProfileList.Add(
                 new ProfileModel
                 {
                     id = ProfileViewModel.ProfileList.Count,
-                    killCount = 5,
                     logname = this.logname,
-                    tripValue = 16,
-                    type = SelectedItem.type
+                    type = SelectedItem.type,
+                    DropList = new ObservableCollection<ItemModel>(),
+                    ItemDisplayList = new ObservableCollection<ItemModel>()
                 }
             );
 

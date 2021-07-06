@@ -2,8 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="LightGrayColor">#C3C3C3</Color>
-    <SolidColorBrush x:Key="ColumbiaBlueColorBrush" Color="{StaticResource LightGrayColor}"/>
-    
+    <SolidColorBrush x:Key="LightGrayColorBrush" Color="{StaticResource LightGrayColor}"/>
+
+    <Color x:Key="MediumGrayColor">#B6C9D2</Color>
+    <SolidColorBrush x:Key="MediumGrayColorBrush" Color="{StaticResource MediumGrayColor}"/>
+
     <Color x:Key="PrussianBlueColor">#0B3954</Color>
     <SolidColorBrush x:Key="PrussianBlueColorBrush" Color="{StaticResource PrussianBlueColor}" />
 
