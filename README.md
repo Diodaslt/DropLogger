@@ -6,6 +6,5 @@ Application designed to log drops received on Runescape fighting Araxii.
 <a href="https://gifyu.com/image/Bzwp"><img src="https://s6.gifyu.com/images/pic1.png" alt="pic1.png" border="0" /></a>
 <p>A list of drop that can be selected and removed at any time</p>
 <a href="https://gifyu.com/image/BzTX"><img src="https://s6.gifyu.com/images/demo2748e28aa05ad7d93.gif" alt="demo2748e28aa05ad7d93.gif" border="0" /></a>
-<p>Auto save function, that allows the app to save any changes and have the changes after a relaunch</p>
 
 
