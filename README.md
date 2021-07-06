@@ -5,7 +5,7 @@ Application designed to log drops received on Runescape fighting Araxii.
 <p>Ability to have multiple profiles and swap between them</p>
 <p>https://ibb.co/X5zpK15</p>
 <p>A list of drop that can be selected and removed at any time</p>
-<iframe src='https://gfycat.com/ifr/VioletGreatFlatcoatretriever' frameborder='0' scrolling='no' allowfullscreen width='640' height='406'></iframe>
+<a href="https://gifyu.com/image/BzTX"><img src="https://s6.gifyu.com/images/demo2748e28aa05ad7d93.gif" alt="demo2748e28aa05ad7d93.gif" border="0" /></a>
 <p>Auto save function, that allows the app to save any changes and have the changes after a relaunch</p>
 
 
