@@ -73,7 +73,9 @@
         <TextBox Grid.Row="2"
                  Grid.Column="0"
                  Margin="5"
+                 Style="{StaticResource TextBoxStyle}"
                  Text="{Binding logname}"
+                 MaxLength="10"
                  />
         
         <!-- Log type -->

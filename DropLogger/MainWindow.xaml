@@ -23,9 +23,9 @@
         <DataTemplate DataType="{x:Type core:ProfileViewModel}">
             <core:ProfileControl/>
         </DataTemplate>
-        <!--<DataTemplate DataType="{x:Type core:ExtraViewModel}">
+        <DataTemplate DataType="{x:Type core:ExtraViewModel}">
             <core:ExtraControl/>
-        </DataTemplate>-->
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -64,11 +64,11 @@
                 Command="{Binding ProfileViewCommand}"
                 Style="{StaticResource MenuItemButton}"
                 />
-        <!--<Button Grid.Row="3"
+        <Button Grid.Row="3"
                 Content="EXTRA"
                 Command="{Binding ExtraViewCommand}"
                 Style="{StaticResource MenuItemButton}" 
-                />-->
+                />
 
         <!-- Displayed pages -->
         <Border Grid.Column="1" Grid.Row="1" 

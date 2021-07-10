@@ -137,12 +137,33 @@
                                 />
 
                         <!-- Log name -->
-                        <TextBlock Text="{Binding logname}" Foreground="#051924"
-                                   Grid.Column="0" Margin="5"
-                                   FontWeight="Bold"
-                                   Background="Transparent"
-                                   VerticalAlignment="Top"
-                                   />
+                        <TextBox>
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                                <TextBox Text="{Binding logname, UpdateSourceTrigger=PropertyChanged}" Foreground="#051924"
+                                                         Name="btn"
+                                                         Grid.Column="0" Margin="5"
+                                                         FontWeight="Bold"
+                                                         Background="Transparent"
+                                                         VerticalAlignment="Top"
+                                                         BorderThickness="0"
+                                                         MaxLength="10"
+                                                         />
+
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="btn" Property="Background" Value="#C3C3C3"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
 
                         <!-- Log type -->
                         <TextBlock Text="{Binding type}" Foreground="#051924"
@@ -201,7 +222,7 @@
                                                                       Storyboard.TargetProperty="(Panel.Background).
                                                                       (SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0"
-                                                             Value="Transparent" />
+                                                                 Value="Transparent" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -212,7 +233,7 @@
                                                                       Storyboard.TargetProperty="(Panel.Background).
                                                                       (SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0"
-                                                             Value="#B6C9D2" />
+                                                                 Value="#B6C9D2" />
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>

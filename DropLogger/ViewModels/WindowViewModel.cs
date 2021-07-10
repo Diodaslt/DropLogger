@@ -25,13 +25,11 @@ namespace DropLogger
             CloseWindowCommand = new RelayCommand(() => window.Close());
             MinimizeWindowCommand = new RelayCommand(() => window.WindowState = WindowState.Minimized);
 
-            //Check if the drop log is empty
-            ListProperties.Instance.CheckDropList();
-
             //Read data from the save file
             JSONDriver.ReadJson();
 
             LogView();
+
             //Write data to json when closing the window
             //This should prompt once the app is started 
             //and before it's closed
@@ -63,6 +61,9 @@ namespace DropLogger
                 //Change the profile to the selected one
                 LogViewModel.ItemDisplayList = new ObservableCollection<ItemModel>(ProfileViewModel.ProfileList[0].ItemDisplayList);
             }
+
+            //Check if the drop log is empty
+            ListProperties.Instance.CheckDropList();
         }
 
         private void ExtraView()

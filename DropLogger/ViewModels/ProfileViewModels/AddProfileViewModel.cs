@@ -69,6 +69,7 @@ namespace DropLogger
             );
 
             CurrentView = new ProfileViewModel();
+            JSONDriver.WriteJson(ProfileViewModel.ProfileList);
         }
 
         private void GoBackToProfile()

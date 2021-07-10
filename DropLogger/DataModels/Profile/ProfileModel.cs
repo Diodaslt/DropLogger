@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,10 +32,22 @@ namespace DropLogger
         private string _logname;
         public string logname
         {
-            get { return _logname; }
+            get 
+            {
+                return _logname; 
+            }
             set
             {
+                var placeholder = _logname;
+
                 _logname = value;
+
+                //Placeholder is null on launch, therefore, it doesnt fire the JSON driver
+                if (placeholder != null)
+                {
+                    JSONDriver.WriteJson(ProfileViewModel.ProfileList);
+                }
+
                 OnPropertyChanged("logname");
             }
         }
